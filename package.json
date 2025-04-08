@@ -1,11 +1,11 @@
 {
-  "name": "wdasdad",
-  "version": "1.0.2",
-  "description": "An Electron application with React and TypeScript",
+  "name": "pomodoro",
+  "version": "1.0.1",
+  "description": "Um app pomodoro criado com electron e React",
   "main": "./out/main/index.js",
-  "author": "GrupoMedcare",
+  "author": "ruancosta07",
   "homepage": "https://electron-vite.org",
-  "repository": "https://github.com/GrupoMedcare/wdasdad",
+  "repository": "https://github.com/ruancosta07/pomodoro-app",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint --cache .",
@@ -16,8 +16,8 @@
     "dev": "electron-vite dev",
     "build": "electron-vite build",
     "postinstall": "electron-builder install-app-deps",
-    "build:unpack": "npm run build && electron-builder --dir",
-    "build:win": "npm run build && electron-builder --win",
+    "build:unpack": "bun run build && electron-builder --dir",
+    "build:win": "bun run build && electron-builder --win",
     "build:mac": "electron-vite build && electron-builder --mac",
     "build:linux": "electron-vite build && electron-builder --linux"
   },
