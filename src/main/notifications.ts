@@ -4,7 +4,7 @@ export default function handleNotifications(): void {
   ipcMain.on('focus-end', () => {
     const focusEndNotification = new Notification({
       title: 'Sua sessão de foco encerrou',
-      body: 'Hora descansar um pouco',
+      body: 'Hora de descansar um pouco',
       icon
     })
     focusEndNotification.show()
@@ -17,10 +17,18 @@ export default function handleNotifications(): void {
     })
     shortRestNotification.show()
   })
-  ipcMain.on('long-rest-end', () => {
+  ipcMain.on('long-rest-start', () => {
     const shortRestNotification = new Notification({
       title: 'Ciclo de pomodoro concluído',
-      body: 'Parabéns por conseguir concluir seu ciclo de pomodoro.',
+      body: 'Parabéns por conseguir concluir seu ciclo de pomodoro, hora de tirar um descanso longo',
+      icon
+    })
+    shortRestNotification.show()
+  })
+  ipcMain.on('long-rest-end', () => {
+    const shortRestNotification = new Notification({
+      title: 'Descanso longo encerrado',
+      body: 'Hora de voltar ao foco da sua tarefa.',
       icon
     })
     shortRestNotification.show()
