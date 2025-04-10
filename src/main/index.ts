@@ -56,18 +56,18 @@ ipcMain.on('confirm-update', () => {
   autoUpdater.quitAndInstall()
 })
 
-ipcMain.on("minimize", ()=> {
+ipcMain.on("minimize", () => {
   mainWindow.minimize()
 })
-ipcMain.on("toggleMaximize", ()=> {
-  if(mainWindow.isMaximized()){
+ipcMain.on("toggleMaximize", () => {
+  if (mainWindow.isMaximized()) {
     mainWindow.unmaximize()
   }
-  else{
+  else {
     mainWindow.maximize()
   }
 })
-ipcMain.on("close", ()=> {
+ipcMain.on("close", () => {
   mainWindow.hide()
 })
 
@@ -83,15 +83,15 @@ app.whenReady().then(() => {
     {
       label: 'Ações rápidas',
       submenu: [
-        { label: 'Iniciar pomodoro' },
-        { label: 'Parar pomodoro' },
-        { label: 'Iniciar descanso' },
-        { label: 'Parar descanso' }
+        { label: 'Iniciar pomodoro', click: (): void => mainWindow.webContents.send('start-pomodoro') },
+        { label: 'Parar pomodoro', click: (): void => mainWindow.webContents.send('stop-pomodoro') },
+        { label: 'Iniciar descanso', click: (): void => mainWindow.webContents.send('start-rest') },
+        { label: 'Parar descanso', click: (): void => mainWindow.webContents.send('stop-rest') }
       ]
     },
     {
       label: 'Fechar app',
-      click: () => mainWindow.close()
+      click: (): void => mainWindow.close()
     }
   ])
   tray.setContextMenu(menu)
