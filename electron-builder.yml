@@ -19,7 +19,11 @@ nsis:
   uninstallDisplayName: ${productName}
   oneClick: false 
   allowToChangeInstallationDirectory: true
-  createDesktopShortcut: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  installerIcon: resources/icon.ico
+  uninstallerIcon: resources/icon.ico
+  installerHeaderIcon: resources/icon.ico
 mac:
   entitlementsInherit: build/entitlements.mac.plist
   extendInfo:

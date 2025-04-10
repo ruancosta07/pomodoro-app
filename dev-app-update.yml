@@ -1,5 +1,0 @@
-publish:
-  provider: github
-  repo: pomodoro-app
-  owner: ruancosta07
-  releaseType: release
